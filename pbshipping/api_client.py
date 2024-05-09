@@ -657,6 +657,9 @@ class ApiClient(object):
                 if klass.attribute_map[attr] in data:
                     value = data[klass.attribute_map[attr]]
                     kwargs[attr] = self.__deserialize(value, attr_type)
+        
+        if self.configuration is not None:
+            kwargs['local_vars_configuration'] = self.configuration
 
         instance = klass(**kwargs)
 
