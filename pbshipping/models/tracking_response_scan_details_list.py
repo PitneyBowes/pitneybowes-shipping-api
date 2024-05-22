@@ -36,25 +36,41 @@ class TrackingResponseScanDetailsList(object):
     openapi_types = {
         'event_date': 'date',
         'event_time': 'str',
+        'event_time_offset': 'str',
         'event_city': 'str',
         'event_state_or_province': 'str',
-        'postal_code': 'int',
+        'event_leg': 'str',
+        'event_type': 'str',
+        'postal_code': 'str',
         'country': 'str',
         'scan_type': 'str',
         'scan_description': 'str',
-        'package_status': 'str'
+        'package_status': 'str',
+        'l1_code': 'str',
+        'l1_description': 'str',
+        'l2_description': 'str',
+        'standardized_event_code': 'str',
+        'standardized_event_description': 'str'
     }
 
     attribute_map = {
         'event_date': 'eventDate',
         'event_time': 'eventTime',
+        'event_time_offset': 'eventTimeOffset',
         'event_city': 'eventCity',
         'event_state_or_province': 'eventStateOrProvince',
+        'event_leg': 'eventLeg',
+        'event_type': 'eventType',
         'postal_code': 'postalCode',
         'country': 'country',
         'scan_type': 'scanType',
         'scan_description': 'scanDescription',
-        'package_status': 'packageStatus'
+        'package_status': 'packageStatus',
+        'l1_code': 'l1Code',
+        'l1_description': 'l1Description',
+        'l2_description': 'l2Description',
+        'standardized_event_code': 'standardizedEventCode',
+        'standardized_event_description': 'standardizedEventDescription'
     }
 
     def __init__(self, event_date=None, event_time=None, event_city=None, event_state_or_province=None, postal_code=None, country=None, scan_type=None, scan_description=None, package_status=None, local_vars_configuration=None):  # noqa: E501
