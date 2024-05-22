@@ -73,7 +73,27 @@ class TrackingResponseScanDetailsList(object):
         'standardized_event_description': 'standardizedEventDescription'
     }
 
-    def __init__(self, event_date=None, event_time=None, event_city=None, event_state_or_province=None, postal_code=None, country=None, scan_type=None, scan_description=None, package_status=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(
+            self, 
+            event_date=None, 
+            event_time=None, 
+            event_time_offset=None, 
+            event_city=None, 
+            event_state_or_province=None, 
+            event_leg=None,
+            event_type=None,
+            postal_code=None, 
+            country=None, 
+            scan_type=None, 
+            scan_description=None, 
+            package_status=None, 
+            l1_code=None,
+            l1_description=None,
+            l2_description=None,
+            standardized_event_code=None,
+            standardized_event_description=None,
+            local_vars_configuration=None
+        ):  # noqa: E501
         """TrackingResponseScanDetailsList - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -81,23 +101,37 @@ class TrackingResponseScanDetailsList(object):
 
         self._event_date = None
         self._event_time = None
+        self._event_time_offset = None
         self._event_city = None
         self._event_state_or_province = None
+        self._event_leg = None
+        self._event_type = None
         self._postal_code = None
         self._country = None
         self._scan_type = None
         self._scan_description = None
         self._package_status = None
+        self._l1_code = None
+        self._l1_description = None
+        self._l2_description = None
+        self._standardized_event_code = None
+        self._standardized_event_description = None
         self.discriminator = None
 
         if event_date is not None:
             self.event_date = event_date
         if event_time is not None:
             self.event_time = event_time
+        if event_time_offset is not None:
+            self.event_time_offset = event_time_offset
         if event_city is not None:
             self.event_city = event_city
         if event_state_or_province is not None:
             self.event_state_or_province = event_state_or_province
+        if event_leg is not None:
+            self.event_leg = event_leg
+        if event_type is not None:
+            self.event_type = event_type
         if postal_code is not None:
             self.postal_code = postal_code
         if country is not None:
@@ -108,6 +142,16 @@ class TrackingResponseScanDetailsList(object):
             self.scan_description = scan_description
         if package_status is not None:
             self.package_status = package_status
+        if l1_code is not None:
+            self.l1_code = l1_code
+        if l1_description is not None:
+            self.l1_description = l1_description
+        if l2_description is not None:
+            self.l2_description = l2_description
+        if standardized_event_code is not None:
+            self.standardized_event_code = standardized_event_code
+        if standardized_event_description is not None:
+            self.standardized_event_description = standardized_event_description
 
     @property
     def event_date(self):
@@ -152,6 +196,27 @@ class TrackingResponseScanDetailsList(object):
         self._event_time = event_time
 
     @property
+    def event_time_offset(self):
+        """Gets the event_time_offset of this TrackingResponseScanDetailsList.  # noqa: E501
+
+
+        :return: The event_time_offset of this TrackingResponseScanDetailsList.  # noqa: E501
+        :rtype: str
+        """
+        return self._event_time_offset
+
+    @event_time_offset.setter
+    def event_time_offset(self, event_time_offset):
+        """Sets the event_time_offset of this TrackingResponseScanDetailsList.
+
+
+        :param event_time: The event_time_offset of this TrackingResponseScanDetailsList.  # noqa: E501
+        :type: str
+        """
+
+        self._event_time_offset = event_time_offset
+
+    @property
     def event_city(self):
         """Gets the event_city of this TrackingResponseScanDetailsList.  # noqa: E501
 
@@ -192,6 +257,48 @@ class TrackingResponseScanDetailsList(object):
         """
 
         self._event_state_or_province = event_state_or_province
+
+    @property
+    def event_leg(self):
+        """Gets the event_leg of this TrackingResponseScanDetailsList.  # noqa: E501
+
+
+        :return: The event_leg of this TrackingResponseScanDetailsList.  # noqa: E501
+        :rtype: str
+        """
+        return self._event_leg
+
+    @event_leg.setter
+    def event_leg(self, event_leg):
+        """Sets the event_leg of this TrackingResponseScanDetailsList.
+
+
+        :param event_leg: The event_leg of this TrackingResponseScanDetailsList.  # noqa: E501
+        :type: str
+        """
+
+        self._event_leg = event_leg
+
+    @property
+    def event_type(self):
+        """Gets the event_type of this TrackingResponseScanDetailsList.  # noqa: E501
+
+
+        :return: The event_type of this TrackingResponseScanDetailsList.  # noqa: E501
+        :rtype: str
+        """
+        return self._event_type
+
+    @event_type.setter
+    def event_type(self, event_type):
+        """Sets the event_type of this TrackingResponseScanDetailsList.
+
+
+        :param event_type: The event_type of this TrackingResponseScanDetailsList.  # noqa: E501
+        :type: str
+        """
+
+        self._event_type = event_type
 
     @property
     def postal_code(self):
@@ -298,6 +405,110 @@ class TrackingResponseScanDetailsList(object):
 
         self._package_status = package_status
 
+    @property
+    def l1_code(self):
+        """Gets the l1_code of this TrackingResponseScanDetailsList.  # noqa: E501
+
+
+        :return: The l1_code of this TrackingResponseScanDetailsList.  # noqa: E501
+        :rtype: str
+        """
+        return self._l1_code
+
+    @l1_code.setter
+    def l1_code(self, l1_code):
+        """Sets the l1_code of this TrackingResponseScanDetailsList.
+
+
+        :param l1_code: The l1_code of this TrackingResponseScanDetailsList.  # noqa: E501
+        :type: str
+        """
+
+        self._l1_code = l1_code
+
+    @property
+    def l1_description(self):
+        """Gets the l1_description of this TrackingResponseScanDetailsList.  # noqa: E501
+
+
+        :return: The l1_description of this TrackingResponseScanDetailsList.  # noqa: E501
+        :rtype: str
+        """
+        return self._l1_description
+
+    @l1_description.setter
+    def l1_description(self, l1_description):
+        """Sets the l1_description of this TrackingResponseScanDetailsList.
+
+
+        :param l1_description: The l1_description of this TrackingResponseScanDetailsList.  # noqa: E501
+        :type: str
+        """
+
+        self._l1_description = l1_description
+
+    @property
+    def l2_description(self):
+        """Gets the l2_description of this TrackingResponseScanDetailsList.  # noqa: E501
+
+
+        :return: The l2_description of this TrackingResponseScanDetailsList.  # noqa: E501
+        :rtype: str
+        """
+        return self._l2_description
+
+    @l2_description.setter
+    def l2_description(self, l2_description):
+        """Sets the l2_description of this TrackingResponseScanDetailsList.
+
+
+        :param l2_description: The l2_description of this TrackingResponseScanDetailsList.  # noqa: E501
+        :type: str
+        """
+
+        self._l2_description = l2_description
+
+    @property
+    def standardized_event_code(self):
+        """Gets the standardized_event_code of this TrackingResponseScanDetailsList.  # noqa: E501
+
+
+        :return: The standardized_event_code of this TrackingResponseScanDetailsList.  # noqa: E501
+        :rtype: str
+        """
+        return self._standardized_event_code
+
+    @standardized_event_code.setter
+    def standardized_event_code(self, standardized_event_code):
+        """Sets the standardized_event_code of this TrackingResponseScanDetailsList.
+
+
+        :param standardized_event_code: The standardized_event_code of this TrackingResponseScanDetailsList.  # noqa: E501
+        :type: str
+        """
+
+        self._standardized_event_code = standardized_event_code
+
+    @property
+    def standardized_event_description(self):
+        """Gets the standardized_event_description of this TrackingResponseScanDetailsList.  # noqa: E501
+
+
+        :return: The standardized_event_description of this TrackingResponseScanDetailsList.  # noqa: E501
+        :rtype: str
+        """
+        return self._standardized_event_description
+
+    @standardized_event_description.setter
+    def standardized_event_description(self, standardized_event_description):
+        """Sets the standardized_event_description of this TrackingResponseScanDetailsList.
+
+
+        :param standardized_event_description: The standardized_event_description of this TrackingResponseScanDetailsList.  # noqa: E501
+        :type: str
+        """
+
+        self._standardized_event_description = standardized_event_description
     def to_dict(self):
         """Returns the model properties as a dict"""
         result = {}
