@@ -49,7 +49,7 @@ class TrackingResponse(object):
         'delivery_location': 'str',
         'delivery_location_description': 'str',
         'signed_by': 'str',
-        'weight': 'int',
+        'weight': 'float',
         'weight_oum': 'str',
         'reattempt_date': 'date',
         'reattempt_time': 'str',
