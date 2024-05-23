@@ -129,7 +129,6 @@ class TrackingResponse(object):
             last_package_status_location=None,
             local_vars_configuration=None
         ):  # noqa: E501
-        import pdb; pdb.set_trace()
         """TrackingResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
