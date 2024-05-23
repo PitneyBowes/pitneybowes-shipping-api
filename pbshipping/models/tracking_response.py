@@ -157,12 +157,13 @@ class TrackingResponse(object):
         self._sender_address = None
         self._scan_details_list = None
         self.discriminator = None
-        self._ship_time=None,
-        self._ship_time_offset=None,
-        self._estimated_delivery_time_offset=None, 
-        self._delivery_time_offset=None, 
-        self._current_status=None,
-        self._last_package_status_location=None,
+        self._service_name=None
+        self._ship_time=None
+        self._ship_time_offset=None
+        self._estimated_delivery_time_offset=None
+        self._delivery_time_offset=None
+        self._current_status=None
+        self._last_package_status_location=None
 
 
         if package_count is not None:
@@ -210,6 +211,8 @@ class TrackingResponse(object):
         if scan_details_list is not None:
             self.scan_details_list = scan_details_list
 
+        if service_name is not None:
+            self._service_name = service_name
         if ship_time is not None:
             self._ship_time=ship_time
         if ship_time_offset is not None:
@@ -264,6 +267,27 @@ class TrackingResponse(object):
         """
 
         self._carrier = carrier
+
+    @property
+    def service_name(self):
+        """Gets the service_name of this TrackingResponse.  # noqa: E501
+
+
+        :return: The service_name of this TrackingResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._service_name
+
+    @service_name.setter
+    def service_name(self, service_name):
+        """Sets the service_name of this TrackingResponse.
+
+
+        :param service_name: The service_name of this TrackingResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._service_name = service_name
 
     @property
     def tracking_number(self):
