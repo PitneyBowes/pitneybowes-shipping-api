@@ -36,16 +36,21 @@ class TrackingResponse(object):
     openapi_types = {
         'package_count': 'int',
         'carrier': 'str',
+        'service_name': 'str',
         'tracking_number': 'str',
         'reference_number': 'str',
         'status': 'str',
         'updated_date': 'date',
         'updated_time': 'str',
         'ship_date': 'date',
+        'ship_time': 'str',
+        'ship_time_offset': 'str',
         'estimated_delivery_date': 'date',
         'estimated_delivery_time': 'str',
+        'estimated_delivery_time_offset': 'str',
         'delivery_date': 'date',
         'delivery_time': 'str',
+        'delivery_time_offset': 'str',
         'delivery_location': 'str',
         'delivery_location_description': 'str',
         'signed_by': 'str',
@@ -55,22 +60,29 @@ class TrackingResponse(object):
         'reattempt_time': 'str',
         'destination_address': 'TrackingAddress',
         'sender_address': 'TrackingAddress',
-        'scan_details_list': 'list[TrackingResponseScanDetailsList]'
+        'scan_details_list': 'list[TrackingResponseScanDetailsList]',
+        'current_status': 'TrackingResponseScanDetailsList',
+        'last_package_status_location': 'str'
     }
 
     attribute_map = {
         'package_count': 'packageCount',
         'carrier': 'carrier',
+        'service_name': 'serviceName',
         'tracking_number': 'trackingNumber',
         'reference_number': 'referenceNumber',
         'status': 'status',
         'updated_date': 'updatedDate',
         'updated_time': 'updatedTime',
         'ship_date': 'shipDate',
+        'ship_time': 'shipTime',
+        'ship_time_offset': 'shipTimeOffset',
         'estimated_delivery_date': 'estimatedDeliveryDate',
         'estimated_delivery_time': 'estimatedDeliveryTime',
+        'estimated_delivery_time_offset': 'estimatedDeliveryTimeOffset',
         'delivery_date': 'deliveryDate',
         'delivery_time': 'deliveryTime',
+        'delivery_time_offset': 'deliveryTimeOffset',
         'delivery_location': 'deliveryLocation',
         'delivery_location_description': 'deliveryLocationDescription',
         'signed_by': 'signedBy',
@@ -80,10 +92,44 @@ class TrackingResponse(object):
         'reattempt_time': 'reattemptTime',
         'destination_address': 'destinationAddress',
         'sender_address': 'senderAddress',
-        'scan_details_list': 'scanDetailsList'
+        'scan_details_list': 'scanDetailsList',
+        'current_status': 'currentStatus',
+        'last_package_status_location': 'lastPackageStatusLocation'
     }
 
-    def __init__(self, package_count=None, carrier=None, tracking_number=None, reference_number=None, status=None, updated_date=None, updated_time=None, ship_date=None, estimated_delivery_date=None, estimated_delivery_time=None, delivery_date=None, delivery_time=None, delivery_location=None, delivery_location_description=None, signed_by=None, weight=None, weight_oum=None, reattempt_date=None, reattempt_time=None, destination_address=None, sender_address=None, scan_details_list=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, 
+            package_count=None, 
+            carrier=None, 
+            service_name=None,
+            tracking_number=None, 
+            reference_number=None, 
+            status=None, 
+            updated_date=None, 
+            updated_time=None, 
+            ship_date=None, 
+            ship_time=None,
+            ship_time_offset=None,
+            estimated_delivery_date=None, 
+            estimated_delivery_time=None, 
+            estimated_delivery_time_offset=None, 
+            delivery_date=None, 
+            delivery_time=None, 
+            delivery_time_offset=None, 
+            delivery_location=None,
+            delivery_location_description=None,
+            signed_by=None,
+            weight=None,
+            weight_oum=None,
+            reattempt_date=None, 
+            reattempt_time=None, 
+            destination_address=None, 
+            sender_address=None, 
+            scan_details_list=None, 
+            current_status=None,
+            last_package_status_location=None,
+            local_vars_configuration=None
+        ):  # noqa: E501
+        import pdb; pdb.set_trace()
         """TrackingResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -112,6 +158,13 @@ class TrackingResponse(object):
         self._sender_address = None
         self._scan_details_list = None
         self.discriminator = None
+        self._ship_time=None,
+        self._ship_time_offset=None,
+        self._estimated_delivery_time_offset=None, 
+        self._delivery_time_offset=None, 
+        self._current_status=None,
+        self._last_package_status_location=None,
+
 
         if package_count is not None:
             self.package_count = package_count
@@ -157,6 +210,19 @@ class TrackingResponse(object):
             self.sender_address = sender_address
         if scan_details_list is not None:
             self.scan_details_list = scan_details_list
+
+        if ship_time is not None:
+            self._ship_time=ship_time
+        if ship_time_offset is not None:
+            self._ship_time_offset=ship_time_offset,
+        if estimated_delivery_time_offset is not None:
+            self._estimated_delivery_time_offset=estimated_delivery_time_offset, 
+        if delivery_time_offset is not None:
+            self._delivery_time_offset=delivery_time_offset
+        if current_status is not None:
+            self._current_status=current_status
+        if last_package_status_location is not None:
+            self._last_package_status_location=last_package_status_location
 
     @property
     def package_count(self):
@@ -631,6 +697,114 @@ class TrackingResponse(object):
         """
 
         self._scan_details_list = scan_details_list
+
+    @property
+    def ship_time(self):
+        """Gets the ship_time of this TrackingResponse.
+
+        :return: The ship_time of this TrackingResponse.
+        :rtype: datetime
+        """
+        return self._ship_time
+
+    @ship_time.setter
+    def ship_time(self, ship_time):
+        """Sets the ship_time of this TrackingResponse.
+
+        :param ship_time: The ship_time of this TrackingResponse.
+        :type: datetime
+        """
+        self._ship_time = ship_time
+
+    @property
+    def ship_time_offset(self):
+        """Gets the ship_time_offset of this TrackingResponse.
+
+        :return: The ship_time_offset of this TrackingResponse.
+        :rtype: int
+        """
+        return self._ship_time_offset
+
+    @ship_time_offset.setter
+    def ship_time_offset(self, ship_time_offset):
+        """Sets the ship_time_offset of this TrackingResponse.
+
+        :param ship_time_offset: The ship_time_offset of this TrackingResponse.
+        :type: int
+        """
+        self._ship_time_offset = ship_time_offset
+
+    @property
+    def estimated_delivery_time_offset(self):
+        """Gets the estimated_delivery_time_offset of this TrackingResponse.
+
+        :return: The estimated_delivery_time_offset of this TrackingResponse.
+        :rtype: int
+        """
+        return self._estimated_delivery_time_offset
+
+    @estimated_delivery_time_offset.setter
+    def estimated_delivery_time_offset(self, estimated_delivery_time_offset):
+        """Sets the estimated_delivery_time_offset of this TrackingResponse.
+
+        :param estimated_delivery_time_offset: The estimated_delivery_time_offset of this TrackingResponse.
+        :type: int
+        """
+        self._estimated_delivery_time_offset = estimated_delivery_time_offset
+
+    @property
+    def delivery_time_offset(self):
+        """Gets the delivery_time_offset of this TrackingResponse.
+
+        :return: The delivery_time_offset of this TrackingResponse.
+        :rtype: int
+        """
+        return self._delivery_time_offset
+
+    @delivery_time_offset.setter
+    def delivery_time_offset(self, delivery_time_offset):
+        """Sets the delivery_time_offset of this TrackingResponse.
+
+        :param delivery_time_offset: The delivery_time_offset of this TrackingResponse.
+        :type: int
+        """
+        self._delivery_time_offset = delivery_time_offset
+
+    @property
+    def current_status(self):
+        """Gets the current_status of this TrackingResponse.
+
+        :return: The current_status of this TrackingResponse.
+        :rtype: str
+        """
+        return self._current_status
+
+    @current_status.setter
+    def current_status(self, current_status):
+        """Sets the current_status of this TrackingResponse.
+
+        :param current_status: The current_status of this TrackingResponse.
+        :type: str
+        """
+        self._current_status = current_status
+
+    @property
+    def last_package_status_location(self):
+        """Gets the last_package_status_location of this TrackingResponse.
+
+        :return: The last_package_status_location of this TrackingResponse.
+        :rtype: str
+        """
+        return self._last_package_status_location
+
+    @last_package_status_location.setter
+    def last_package_status_location(self, last_package_status_location):
+        """Sets the last_package_status_location of this TrackingResponse.
+
+        :param last_package_status_location: The last_package_status_location of this TrackingResponse.
+        :type: str
+        """
+        self._last_package_status_location = last_package_status_location
 
     def to_dict(self):
         """Returns the model properties as a dict"""
